@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "Main Department";
+    Layout = "~/Views/Shared/_RestaurantLayout.cshtml";
+}
+
+@section scriptSectionHeadRestaurant {
+    <link rel="stylesheet" type="text/css" href="/Content/Restaurant/css/bootstrap.min.css">
+    <script src="/Content/Restaurant/bootstrap/jquery.slim.min.js"></script>
+    <script src="/Content/Restaurant/bootstrap/popper.min.js"></script>
+    <script src="/Content/Restaurant/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .content-wrapper {
+            min-height: 692px;
+        }
+        .form-group .form-control {
+            height: inherit;
+        }
+    </style>
+}
+
+<div class="top_area_row">
+    <div class="row">
+        <div class="col-sm-8">
+            <nav>
+                <div class="main_nav_bread">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item nav_bread_one"><a href="/Restaurant/ManageProducts">Products</a></li>
+                        <li class="breadcrumb-item nav_right pl-0">
+                            <a href="javascript:;"
+                               style="text-decoration: none;cursor:text;">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item nav_bread_two pl-0"><a href="javascript:;" style="text-decoration: none;cursor:text;">Main Department</a></li>
+                    </ol>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main_deapt">
+
+        <div class="row align-items-center">
+            <div class="col-sm-10">
+                <h2 class="mb-0">MAIN DEPARTMENT</h2>
+            </div>
+            <div class="col-sm-2">
+                <div class="check_wrap-right">
+                    <div class="form-group mb-0">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="sb-checkbox__input cstm_wrap_uppr" id="chkDeleteMainDepartment" name="chkDeleteMainDepartment" onchange="EnableDeleteMainDepartmentOption();">
+                            <label class="sb-checkbox__label sb-checkbox__label--green wrap_label_check" for="chkDeleteMainDepartment"></label> <span class="onlie_prder"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_dept_below">
+            <div id="dv_MainDeparmentsList_Section" class="row">               
+                <div class="col-sm-2 wrapadd-plus-cion">
+                    <div class="svg_plus_icon">
+                        <a href="javascript:;" onclick="OpenCreateMainDepartmentPopup();">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                <g id="Group_12423" data-name="Group 12423" transform="translate(-688.5 -285.5)">
+                                    <line id="Line_85" data-name="Line 85" y2="16" transform="translate(697.5 286.5)" fill="none" stroke="#1c2126" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                    <line id="Line_86" data-name="Line 86" x2="16" transform="translate(689.5 294.5)" fill="none" stroke="#1c2126" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+</div>
+
+@section SectionFooterRestaurant {
+
+    <!-- Trigger the modal with a button -->
+    <button id="btn_ResponseMainDepartment_Modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ResponseMainDepartment_Modal" style="display:none;"></button>
+
+    <div class="modal" id="ResponseMainDepartment_Modal" data-backdrop="static" data-keyboard="false" style="z-index: 1065;">
+        <div class="modal-dialog cstm_modal_dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="padding-bottom:10px;">
+                  
+                    <h4 class="modal-title">
+                        <svg id="iconError_MainDepartmentModal" xmlns="http://www.w3.org/2000/svg" width="65.662" height="57.857" viewBox="0 0 65.662 57.857" style="display:none;">
+            <g id="alert" transform="translate(-1.935 -3.844)">
+                <path id="Path_12880" data-name="Path 12880" d="M63.758,61.7H5.779a3.864,3.864,0,0,1-3.321-1.911,3.807,3.807,0,0,1-.01-3.836l29-50.194a3.829,3.829,0,0,1,6.633,0L67.014,55.83A3.838,3.838,0,0,1,63.758,61.7ZM34.667,7.6h-.031l-29,50.188.143.237H63.756a.17.17,0,0,0,.159-.157c-.012-.02-.078-.176-.09-.2L34.9,7.6Z" transform="translate(0 0)" fill="#ff5c5a" />
+                <path id="Path_12881" data-name="Path 12881" d="M17.127,15.064v16a2.088,2.088,0,0,0,4.175,0v-16a2.088,2.088,0,1,0-4.177,0Zm0,0" transform="translate(15.85 9.522)" fill="#ff5c5a" />
+                <path id="Path_12882" data-name="Path 12882" d="M19.214,24.209a2.087,2.087,0,0,0-2.088,2.082v1.4a2.088,2.088,0,0,0,4.177,0v-1.4A2.087,2.087,0,0,0,19.214,24.209Zm0,0" transform="translate(15.852 21.25)" fill="#ff5c5a" />
+            </g>
+        </svg>
+                        <svg id="iconSuccess_MainDepartmentModal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="70.662" height="62.857" style="display:none;"><path fill="#c8e6c9" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z" /><path fill="#4caf50" d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z" /></svg>
+                    </h4>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body new_modal_work">
+                    <p id="lblResponseMessage_MainDepartment_Modal"></p>
+
+                    <div class="modal-bottom plus_modal_bottom">
+                        <button id="btnClose_ResponseMessage_Modal_MainDepartment" type="button" class="cstm_model_plusbtn_1 btn btn-danger" data-dismiss="modal" style="display:none;"></button>
+                        <button type="button" class="cstm_model_plusbtn_1 btn btn-danger" onclick="CloseResponseMessageModal_MainDepartment();">Close</button>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Trigger the modal with a button -->
+    <button id="btn_CreateMainDepartment_Modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CreateMainDepartment_Modal" style="display:none;"></button>
+
+    <div class="modal" id="CreateMainDepartment_Modal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog cstm_modal_dialog">
+            <div class="modal-content plus_modal_cont">
+
+                <!-- Modal Header -->
+                <div class="modal-header plus_modal_head" style="display:block;padding-bottom:0px;text-align:center;">
+                    <h4 id="heading_Title_MainDepartmentModal" class="modal-title plus_head_popup" style="left:0px;">
+                        @*Add Main Department*@
+                    </h4>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body new_modal_work">
+                    <div class="form-group plus_from_group">
+                        <input type="text" class="form-control plus_imput_feild" id="txtMainDepartmentName_ManageMainDepartment" aria-describedby="emailHelp" placeholder="Enter Main Department">
+                        <div id="mainDepartmentName_error_ManageMainDepartment" class="errorsClass2"></div>
+                    </div>
+                    <div class="modal-bottom plus_modal_bottom">
+                        <button id="btnCancel_CreateMainDepartment_Modal" type="button" class="cstm_model_plusbtn_1 btn btn-danger" data-dismiss="modal" style="display:none;"></button>
+                        <button type="button" class="cstm_model_plusbtn_1 btn btn-danger" onclick="CloseCreateMainDepartment();">Cancel</button>
+                        <button id="btnSubmit_MainDepartment" type="button" class="cstm_model_plusbtn_2 btn btn-danger" onclick="CreateMainDepartment(1);">Add</button>
+                        <button id="btnUpdate_MainDepartment" type="button" class="cstm_model_plusbtn_2 btn btn-danger" onclick="CreateMainDepartment(2);" style="display:none;">Update</button>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+
+
+            </div>
+        </div>
+    </div>
+}
+
+<script src="/ScriptFiles/NotificationMsgScript.js"></script>
+<script src="/ScriptFiles/Loader.js"></script>
+<script src="/ScriptFiles/MainDepartmentRestaurant.js"></script>
+
+<script>
+   // $("#heading_PageTitle_RestaurantLayout").html('MAIN DEPARTMENT');
+    $(document).ready(function () {
+        $("#heading_PageTitle_RestaurantLayout").html('Main Department');
+        //------add class for style 
+        $('body').attr("class", "");
+        $("body").addClass('main-dept-bx');
+    });
+</script>
+
